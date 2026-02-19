@@ -1,6 +1,5 @@
 """
-Ideia de READ.ME
-Projeto: Lista de compras inteligente
+Projeto: Controle de estoque 
 Autor: Jefferson Luiz de Oliveira Madeira
 Descrição:
     Um pequeno projeto para demonstrar conhecimentos em python
