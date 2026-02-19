@@ -1,4 +1,4 @@
-# Progeto-iniciante-python
+# Projeto-Controle-de-Estoque-em-python
 Projeto: Controle de estoque 
 Autor: Jefferson Luiz de Oliveira Madeira
 Descrição:
