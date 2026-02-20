@@ -45,7 +45,6 @@ while True:
         print()
         alterar=int(input("Qual produto deseja alterar [ID]:  "))
         posicao = lista_prod.index(lista_prod[alterar])
-        
         print()
         print("O que deseja alterar: ")
         print()
@@ -53,14 +52,14 @@ while True:
         print("[1] Quantidade")
         print()
         opcao_alterar = int(input("Digite a opção a ser alterada: "))
-      
+        
         if alterar == posicao:
             if opcao_alterar == 0:
-                lista_prod[alterar][opcao_alterar]
+                lista_prod[alterar][opcao_alterar] = str(input("Digite a nova quantidade: "))
+                
             if opcao_alterar == 1:
-                lista_prod[alterar][opcao_alterar] = input("Digite a nova quantidade: ")
-
-                        
+                lista_prod[alterar][opcao_alterar] = int(input("Digite a nova quantidade: "))
+         
             
         
  
