@@ -5,10 +5,10 @@ Descrição:
     Um pequeno projeto para demonstrar conhecimentos em python
 """
 
-lista_prod = []
+
 produto = []
 quant_prod = []
-listar_apagar = []
+
 
 while True:
     print("\n--- Controle de Estoque ---")
