@@ -16,35 +16,30 @@ while True:
     print("2 - Listar produto")
     print("3 - Alterar  produto")
     print("4 - Remover produto")
-    print("5 - Sair")
+    print("0 - Sair")
     opcao = int(input("Escolha uma opção: "))
     print()
     if opcao == 1:
-        nome_prod = input("Qual produto deseja cadastrar? ")
-        listar_apagar.append(nome_prod)
-        quant = int(input(f"Quantas unidades de {nome_prod} deseja cadastrar? "))
-        listar_apagar.append(quant)
+        nome_prod = str(input("Qual produto deseja cadastrar? "))
         produto.append(nome_prod)
+        quant = int(input(f"Quantas unidades de {nome_prod} deseja cadastrar? "))
         quant_prod.append(quant)
-        lista_prod.append(listar_apagar[:])
-        listar_apagar.clear()
-
     elif opcao == 2:
         
         print(f"{'ID':<10}{'Produto':<20}{'Quant.':>10}")
         print()
 
-        for i in range(len(lista_prod)):
+        for i in range(len(produto)):
             print(f"{i:<10}{produto[i]:<20}{quant_prod[i]:>10}")
     elif opcao == 3:
         print(f"{'ID':<10}{'Produto':<20}{'Quant.':>10}")
         print()
 
-        for i in range(len(lista_prod)):
+        for i in range(len(produto)):
             print(f"{i:<10}{produto[i]:<20}{quant_prod[i]:>10}")
         print()
         alterar=int(input("Qual produto deseja alterar [ID]:  "))
-        posicao = lista_prod.index(lista_prod[alterar])
+        posicao = produto.index(produto[alterar])
         print()
         print("O que deseja alterar: ")
         print()
@@ -55,11 +50,23 @@ while True:
         
         if alterar == posicao:
             if opcao_alterar == 0:
-                lista_prod[alterar][opcao_alterar] = str(input("Digite a nova quantidade: "))
+                produto[posicao] = str(input("Digite o novo nome: "))
+                
                 
             if opcao_alterar == 1:
-                lista_prod[alterar][opcao_alterar] = int(input("Digite a nova quantidade: "))
-         
+                quant_prod[posicao] = int(input("Digite a nova quantidade: "))
+    elif opcao == 4:
+        print(f"{'ID':<10}{'Produto':<20}{'Quant.':>10}")
+        print()
+
+        for i in range(len(produto)):
+            print(f"{i:<10}{produto[i]:<20}{quant_prod[i]:>10}")
+        print()
+
+        remover = int(input("Qual produto deseja remover[ID]: "))    
+        del produto[remover]
+    elif opcao == 0:
+        break   
             
         
  
