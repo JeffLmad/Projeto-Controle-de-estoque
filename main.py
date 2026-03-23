@@ -21,10 +21,10 @@ while True:
     print("3 - Alterar  produto")
     print("4 - Remover produto")
     print("0 - Sair")
-    opcao = int(input("Escolha uma opção: "))
+    opcao = input("Escolha uma opção: ")
     resp = opcao
     print()
-    if opcao == 1:
+    if opcao == "1":
         while True:
             time.sleep(0.5)
             print("-"*50)
@@ -65,7 +65,7 @@ while True:
                     break
             if resp == "0": 
                 break         
-    elif opcao == 2:
+    elif opcao == "2":
         print("-"*50)
         print(f"{"PRODUTOS CADASTRADOS:":^50}")
         print("-"*50)
@@ -88,7 +88,7 @@ while True:
             resp = input("[0] Voltar ao menu ")
             if resp == "0": 
                 break
-    elif opcao == 3:
+    elif opcao == "3":
         while True:
             time.sleep(0.5)
             print("-"*50)
@@ -102,6 +102,25 @@ while True:
             print()
             time.sleep(0.5)
             alterar=int(input("Qual produto deseja alterar [ID]:  "))
+
+            while alterar > len(produto):
+                print()
+                print("x"*50)
+                print(f"{"Opção inválida, tente novamente ":^50}")
+                print("x"*50)
+                print()
+                alterar=int(input("Qual produto deseja alterar [ID]:  "))
+                if alterar in len(produto):
+                    break
+            
+
+
+
+
+
+
+
+
             print()
             time.sleep(0.5)
             posicao = produto.index(produto[alterar])
@@ -151,7 +170,7 @@ while True:
                         break
             if resp == "0": 
                 break        
-    elif opcao == 4:
+    elif opcao == "4":
         print("-"*50)
         print(f"{"APAGAR PRODUTO:":^50}")
         print("-"*50)
@@ -165,7 +184,12 @@ while True:
         remover = int(input("Qual produto deseja remover[ID]: "))    
         del produto[remover]
     elif opcao == 0:
-        break   
+        break
+    else:
+        time.sleep(0.5)
+        print("Opção inválida.")
+        time.sleep(0.5)
+        print()
             
         
  
