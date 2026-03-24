@@ -4,7 +4,7 @@ Autor: Jefferson Luiz de Oliveira Madeira
 Descrição:
     Um pequeno projeto para demonstrar conhecimentos em python
 """
-#fazer amanhã o tratamento de erro do bloco 3 - alteração de produto
+#fazer amanhã o tratamento de erro do bloco 3 = alteração de produto
 import time
 
 produto = []
@@ -12,24 +12,24 @@ quant_prod = []
 
 
 while True:
-    print("-"*50)
+    print("="*50)
     print(f"{"CONTROLE DE ESTOQUE:":^50}")
-    print("-"*50)
+    print("="*50)
     time.sleep(0.5)
-    print("1 - Cadastrar produto")
-    print("2 - Listar produto")
-    print("3 - Alterar  produto")
-    print("4 - Remover produto")
-    print("0 - Sair")
+    print("1 = Cadastrar produto")
+    print("2 = Listar produto")
+    print("3 = Alterar  produto")
+    print("4 = Remover produto")
+    print("0 = Sair")
     opcao = input("Escolha uma opção: ")
     resp = opcao
     print()
     if opcao == "1":
         while True:
             time.sleep(0.5)
-            print("-"*50)
+            print("="*50)
             print(f"{"CADASTRO DE PRODUTO: ":^50}")
-            print("-"*50)
+            print("="*50)
             print()
             time.sleep(0.5)
             nome_prod = str(input("Qual produto deseja cadastrar? ")).capitalize()
@@ -66,39 +66,47 @@ while True:
             if resp == "0": 
                 break         
     elif opcao == "2":
-        print("-"*50)
-        print(f"{"PRODUTOS CADASTRADOS:":^50}")
-        print("-"*50)
-        time.sleep(0.5)
-        print(f"{'ID':<10}{'Produto':<20}{'Quant.':>10}")
-        print()
-        
-        for i in range(len(produto)):
-            print(f"{i:<10}{produto[i]:<20}{quant_prod[i]:>10}")
-        print("-"*50)
-        time.sleep(0.5)
-        print("Deseja:")
-        resp = input("[0] Voltar ao menu ")
-        while resp != "0":
+        if len(produto) == 0:
+            time.sleep(0.5)
+            print("-"*50)
+            print("O estoque não possui nenhum produto a ser listado!!!")
+            print("-"*50)
             print()
-            print("x"*50)
-            print(f"{"Opção inválida, tente novamente ":^50}")
-            print("x"*50)
+            time.sleep(0.5)
+        else:
+            print("="*50)
+            print(f"{"PRODUTOS CADASTRADOS:":^50}")
+            print("="*50)
+            time.sleep(0.5)
+            print(f"{'ID':<10}{'Produto':<20}{'Quant.':>10}")
             print()
+            
+            for i in range(len(produto)):
+                print(f"{i:<10}{produto[i]:<20}{quant_prod[i]:>10}")
+            print("="*50)
+            time.sleep(0.5)
+            print("Deseja:")
             resp = input("[0] Voltar ao menu ")
-            if resp == "0": 
-                break
+            while resp != "0":
+                print()
+                print("x"*50)
+                print(f"{"Opção inválida, tente novamente ":^50}")
+                print("x"*50)
+                print()
+                resp = input("[0] Voltar ao menu ")
+                if resp == "0": 
+                    break
     elif opcao == "3":
         while True:
             time.sleep(0.5)
-            print("-"*50)
+            print("="*50)
             print(f"{"ALTERAÇÃO DE PRODUTO:":^50}")
-            print("-"*50)
+            print("="*50)
             print(f"{'ID':<10}{'Produto':<20}{'Quant.':>10}")
             print()
             for i in range(len(produto)):
                 print(f"{i:<10}{produto[i]:<20}{quant_prod[i]:>10}")
-            print("-"*50)
+            print("="*50)
             print()
             time.sleep(0.5)
             alterar=int(input("Qual produto deseja alterar [ID]:  "))
@@ -133,9 +141,9 @@ while True:
                     produto[posicao] = str(input("Digite o novo nome: "))
                     print()
                     time.sleep(0.5)
-                    print("="*50)
+                    print("!"*50)
                     print(f"{"Nome alterado com sucesso ":^50}")
-                    print("="*50)
+                    print("!"*50)
                     time.sleep(0.5)
                     print()      
                 if opcao_alterar == 1:
@@ -144,9 +152,9 @@ while True:
                     quant_prod[posicao] = int(input("Digite a nova quantidade: "))
                     print()
                     time.sleep(0.5)
-                    print("="*50)
+                    print("!"*50)
                     print(f"{"Quantidade alterada com sucesso ":^50}")
-                    print("="*50)
+                    print("!"*50)
                     time.sleep(0.5)
                     print()
             print("Deseja:")
@@ -163,19 +171,35 @@ while True:
             if resp == "0": 
                 break        
     elif opcao == "4":
-        print("-"*50)
-        print(f"{"APAGAR PRODUTO:":^50}")
-        print("-"*50)
-        print(f"{'ID':<10}{'Produto':<20}{'Quant.':>10}")
-        print()
+        if len(produto) == 0:
+            time.sleep(0.5)
+            print("-"*50)
+            print("O estoque não possui nenhum produto a ser excluido!!!")
+            print("-"*50)
+            print()
+            time.sleep(0.5)
+        else:
+            print("="*50)
+            print(f"{"APAGAR PRODUTO:":^50}")
+            print("="*50)
+            print(f"{'ID':<10}{'Produto':<20}{'Quant.':>10}")
+            print()
 
-        for i in range(len(produto)):
-            print(f"{i:<10}{produto[i]:<20}{quant_prod[i]:>10}")
-        print()
+            for i in range(len(produto)):
+                print(f"{i:<10}{produto[i]:<20}{quant_prod[i]:>10}")
+            print()
 
-        remover = int(input("Qual produto deseja remover[ID]: "))    
-        del produto[remover]
-    elif opcao == 0:
+            remover = int(input("Qual produto deseja remover[ID]: "))    
+            print()
+            time.sleep(0.5)
+            print(">"*50)
+            print(f"{f"{produto[remover]} removido com sucesso!":^50}")
+            print(">"*50)
+            time.sleep(0.5)
+            print()
+            del produto[remover]
+
+    elif opcao == "0":
         break
     else:
         time.sleep(0.5)
