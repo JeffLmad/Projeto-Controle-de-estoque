@@ -113,14 +113,6 @@ while True:
                 if alterar in len(produto):
                     break
             
-
-
-
-
-
-
-
-
             print()
             time.sleep(0.5)
             posicao = produto.index(produto[alterar])
